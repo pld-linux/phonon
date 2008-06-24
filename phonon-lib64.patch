@@ -1,0 +1,11 @@
+--- cmake/FindAutomoc4.cmake	2008-06-20 16:02:22.000000000 +0200
++++ cmake/FindAutomoc4.cmake-new	2008-06-24 21:19:59.329186000 +0200
+@@ -32,7 +32,7 @@
+              PATH_SUFFIXES automoc4 lib/automoc4 lib64/automoc4
+              PATHS ${_env_CMAKE_PREFIX_PATH} ${CMAKE_PREFIX_PATH} ${CMAKE_SYSTEM_PREFIX_PATH} 
+                    ${_env_CMAKE_LIBRARY_PATH} ${CMAKE_LIBRARY_PATH} ${CMAKE_SYSTEM_LIBRARY_PATH}
+-                   ${CMAKE_INSTALL_PREFIX}/lib 
++                   ${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}
+              NO_DEFAULT_PATH )
+ endif("${KDESupport_SOURCE_DIR}" STREQUAL "${CMAKE_SOURCE_DIR}")
+ 
