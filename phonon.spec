@@ -3,7 +3,7 @@ Summary:	Phonon library
 Summary(pl.UTF-8):	Biblioteka phonon
 Name:		phonon
 Version:	4.1.83
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/4.0.83/support/%{name}-%{version}.tar.bz2
@@ -79,10 +79,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libphonon.so.?
 %attr(755,root,root) %{_libdir}/libphononexperimental.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libphononexperimental.so.?
+%dir %{_libdir}/kde4
+%dir %{_libdir}/kde4/plugins
 %dir %{_libdir}/kde4/plugins/phonon_backend
 %attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_gstreamer.so
 %dir %{_datadir}/dbus-1/interfaces
 %{_datadir}/dbus-1/interfaces/org.kde.Phonon.AudioOutput.xml
+%dir %{_datadir}/kde4
+%dir %{_datadir}/kde4/services
 %dir %{_datadir}/kde4/services/phononbackends
 %{_datadir}/kde4/services/phononbackends/gstreamer.desktop
 
