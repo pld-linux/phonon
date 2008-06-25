@@ -8,7 +8,7 @@ License:	GPL v2
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/4.0.83/support/%{name}-%{version}.tar.bz2
 # Source0-md5:	7d0ae1321e7f013ce92b39548134b770
-URL:		http://www.kde.org/
+URL:		http://phonon.kde.org/
 Patch0:		%{name}-lib64.patch
 BuildRequires:	QtCore-devel >= %{qtbrver}
 BuildRequires:	QtDBus-devel >= %{qtbrver}
