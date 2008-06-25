@@ -13,10 +13,12 @@ Patch0:		%{name}-lib64.patch
 BuildRequires:	QtCore-devel >= %{qtbrver}
 BuildRequires:	QtDBus-devel >= %{qtbrver}
 BuildRequires:	QtNetwork-devel >= %{qtbrver}
+BuildRequires:	QtOpenGL-devel >= %{qtbrver}
 BuildRequires:	QtSql-devel >= %{qtbrver}
 BuildRequires:	QtTest-devel >= %{qtbrver}
 BuildRequires:	automoc4 >= 0.9.83
 BuildRequires:	cmake
+BuildRequires:	gstreamer-plugins-base-devel >= 0.10.0
 BuildRequires:	qt4-build >= %{qtbrver}
 BuildRequires:	qt4-qmake >= %{qtbrver}
 BuildRequires:	rpmbuild(macros) >= 1.293
