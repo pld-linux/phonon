@@ -36,7 +36,6 @@ Biblioteka phonon.
 Summary:        Phonon files
 Group:          Development/Libraries
 Requires:	%{name} == %{version}-%{release}
-Requires:	kde4-kdelibs-devel
 Provides:	qt4-phonon-devel
 Obsoletes:	qt4-phonon-devel
 
@@ -92,5 +91,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libphonon.so
 %{_libdir}/libphononexperimental.so
 %{_includedir}/phonon
+%dir %{_includedir}/KDE
 %{_includedir}/KDE/Phonon
 %{_pkgconfigdir}/phonon.pc
