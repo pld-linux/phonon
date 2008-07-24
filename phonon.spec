@@ -3,7 +3,7 @@ Summary:	Phonon library
 Summary(pl.UTF-8):	Biblioteka phonon
 Name:		phonon
 Version:	4.2.0
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tar.bz2
@@ -17,7 +17,7 @@ BuildRequires:	QtSql-devel >= %{qtbrver}
 BuildRequires:	QtTest-devel >= %{qtbrver}
 BuildRequires:	automoc4 >= 0.9.83
 BuildRequires:	cmake
-BuildRequires:	gstreamer-plugins-base-devel >= 0.10.0
+BuildRequires:	gstreamer-plugins-base-devel >= 0.10.20
 BuildRequires:	qt4-build >= %{qtbrver}
 BuildRequires:	qt4-qmake >= %{qtbrver}
 BuildRequires:	rpmbuild(macros) >= 1.293
