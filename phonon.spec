@@ -3,7 +3,7 @@ Summary:	Phonon library
 Summary(pl.UTF-8):	Biblioteka phonon
 Name:		phonon
 Version:	4.2.0
-Release:	0
+Release:	1
 License:	GPL v2
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tar.bz2
