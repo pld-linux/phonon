@@ -15,9 +15,9 @@ BuildRequires:	QtNetwork-devel >= %{qtbrver}
 BuildRequires:	QtOpenGL-devel >= %{qtbrver}
 BuildRequires:	QtSql-devel >= %{qtbrver}
 BuildRequires:	QtTest-devel >= %{qtbrver}
-BuildRequires:	automoc4 >= 0.9.83
+BuildRequires:	automoc4 >= 0.9.84
 BuildRequires:	cmake
-BuildRequires:	gstreamer-plugins-base-devel >= 0.10.20
+BuildRequires:	gstreamer-plugins-base-devel >= 0.10.19
 BuildRequires:	qt4-build >= %{qtbrver}
 BuildRequires:	qt4-qmake >= %{qtbrver}
 BuildRequires:	rpmbuild(macros) >= 1.293
