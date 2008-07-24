@@ -2,14 +2,13 @@
 Summary:	Phonon library
 Summary(pl.UTF-8):	Biblioteka phonon
 Name:		phonon
-Version:	4.1.83
-Release:	2
+Version:	4.2.0
+Release:	0
 License:	GPL v2
 Group:		X11/Libraries
-Source0:	ftp://ftp.kde.org/pub/kde/unstable/4.0.83/support/%{name}-%{version}.tar.bz2
-# Source0-md5:	7d0ae1321e7f013ce92b39548134b770
+Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tar.bz2
+# Source0-md5:	de80b0f055886a6946acc7886713e23e
 URL:		http://phonon.kde.org/
-Patch0:		%{name}-lib64.patch
 BuildRequires:	QtCore-devel >= %{qtbrver}
 BuildRequires:	QtDBus-devel >= %{qtbrver}
 BuildRequires:	QtNetwork-devel >= %{qtbrver}
@@ -47,7 +46,6 @@ Pliki nag³ówkowe dla phonon.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 install -d build
