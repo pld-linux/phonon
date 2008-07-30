@@ -1,25 +1,26 @@
-%define		qtbrver		4.4.0
+# TODO: real summary and description
+%define		qt_ver		4.4.0
 Summary:	Phonon library
-Summary(pl.UTF-8):	Biblioteka phonon
+Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
 Version:	4.2.0
-Release:	2
-License:	GPL v2
+Release:	2.1
+License:	LGPL v2.1
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tar.bz2
 # Source0-md5:	de80b0f055886a6946acc7886713e23e
 URL:		http://phonon.kde.org/
-BuildRequires:	QtCore-devel >= %{qtbrver}
-BuildRequires:	QtDBus-devel >= %{qtbrver}
-BuildRequires:	QtNetwork-devel >= %{qtbrver}
-BuildRequires:	QtOpenGL-devel >= %{qtbrver}
-BuildRequires:	QtSql-devel >= %{qtbrver}
-BuildRequires:	QtTest-devel >= %{qtbrver}
+BuildRequires:	QtCore-devel >= %{qt_ver}
+BuildRequires:	QtDBus-devel >= %{qt_ver}
+BuildRequires:	QtNetwork-devel >= %{qt_ver}
+BuildRequires:	QtOpenGL-devel >= %{qt_ver}
+BuildRequires:	QtSql-devel >= %{qt_ver}
+BuildRequires:	QtTest-devel >= %{qt_ver}
 BuildRequires:	automoc4 >= 0.9.84
-BuildRequires:	cmake
+BuildRequires:	cmake >= 2.4.5
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.19
-BuildRequires:	qt4-build >= %{qtbrver}
-BuildRequires:	qt4-qmake >= %{qtbrver}
+BuildRequires:	qt4-build >= %{qt_ver}
+BuildRequires:	qt4-qmake >= %{qt_ver}
 BuildRequires:	rpmbuild(macros) >= 1.293
 Provides:	qt4-phonon
 Obsoletes:	qt4-phonon
@@ -32,17 +33,21 @@ Phonon library.
 Biblioteka phonon.
 
 %package devel
-Summary:        Phonon files
+Summary:        Header files for Phonon library
+Summary(pl.UTF-8):	Pliki nag≈Ç√≥wkowe biblioteki Phonon
 Group:          Development/Libraries
 Requires:	%{name} == %{version}-%{release}
+Requires:	QtCore-devel >= %{qt_ver}
+Requires:	QtDBus-devel >= %{qt_ver}
+Requires:	QtGui-devel >= %{qt_ver}
 Provides:	qt4-phonon-devel
 Obsoletes:	qt4-phonon-devel
 
 %description devel
-Header files for phonon.
+Header files for Phonon library.
 
 %description devel -l pl.UTF-8
-Pliki nag≥Ûwkowe dla phonon.
+Pliki nag≈Ç√≥wkowe biblioteki Phonon.
 
 %prep
 %setup -q
@@ -50,12 +55,12 @@ Pliki nag≥Ûwkowe dla phonon.
 %build
 install -d build
 cd build
-%cmake \
+%cmake .. \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	-DCMAKE_VERBOSE_MAKEFILE=ON \
 %if "%{_lib}" == "lib64"
-	-DLIB_SUFFIX=64 \
+	-DLIB_SUFFIX=64
 %endif
-	..
 
 %{__make}
 
@@ -74,9 +79,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libphonon.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libphonon.so.?
+%attr(755,root,root) %ghost %{_libdir}/libphonon.so.4
 %attr(755,root,root) %{_libdir}/libphononexperimental.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libphononexperimental.so.?
+%attr(755,root,root) %ghost %{_libdir}/libphononexperimental.so.4
 %dir %{_libdir}/kde4
 %dir %{_libdir}/kde4/plugins
 %dir %{_libdir}/kde4/plugins/phonon_backend
@@ -90,8 +95,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/libphonon.so
-%{_libdir}/libphononexperimental.so
+%attr(755,root,root) %{_libdir}/libphonon.so
+%attr(755,root,root) %{_libdir}/libphononexperimental.so
 %{_includedir}/phonon
 %dir %{_includedir}/KDE
 %{_includedir}/KDE/Phonon
