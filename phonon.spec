@@ -33,9 +33,9 @@ Phonon library.
 Biblioteka phonon.
 
 %package devel
-Summary:        Header files for Phonon library
+Summary:	Header files for Phonon library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Phonon
-Group:          Development/Libraries
+Group:		X11/Development/Libraries
 Requires:	%{name} == %{version}-%{release}
 Requires:	QtCore-devel >= %{qt_ver}
 Requires:	QtDBus-devel >= %{qt_ver}
