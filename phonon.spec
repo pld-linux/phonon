@@ -86,7 +86,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/kde4/plugins
 %dir %{_libdir}/kde4/plugins/phonon_backend
 %attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_gstreamer.so
-%dir %{_datadir}/dbus-1/interfaces
 %{_datadir}/dbus-1/interfaces/org.kde.Phonon.AudioOutput.xml
 %dir %{_datadir}/kde4
 %dir %{_datadir}/kde4/services
