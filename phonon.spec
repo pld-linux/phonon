@@ -1,13 +1,15 @@
-%define		qtbrver		4.4.0
+%define		qtbrver		4.4.1
+%define		snap	r848504
 Summary:	Phonon library
 Summary(pl.UTF-8):	Biblioteka phonon
 Name:		phonon
-Version:	4.2.0
-Release:	1
+Version:	4.2.1
+Release:	0.%{snap}.1
 License:	GPL v2
 Group:		X11/Libraries
-Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	de80b0f055886a6946acc7886713e23e
+#Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tar.bz2
+Source0:	%{name}-%{version}-%{snap}.tar.bz2
+# Source0-md5:	556190b555f7258d40dbb86802d24f25
 URL:		http://phonon.kde.org/
 BuildRequires:	QtCore-devel >= %{qtbrver}
 BuildRequires:	QtDBus-devel >= %{qtbrver}
@@ -15,8 +17,8 @@ BuildRequires:	QtNetwork-devel >= %{qtbrver}
 BuildRequires:	QtOpenGL-devel >= %{qtbrver}
 BuildRequires:	QtSql-devel >= %{qtbrver}
 BuildRequires:	QtTest-devel >= %{qtbrver}
-BuildRequires:	automoc4 >= 0.9.83
-BuildRequires:	cmake
+BuildRequires:	automoc4 >= 0.9.86
+BuildRequires:	cmake >= 2.6.1-2
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.0
 BuildRequires:	qt4-build >= %{qtbrver}
 BuildRequires:	qt4-qmake >= %{qtbrver}
@@ -45,7 +47,7 @@ Header files for phonon.
 Pliki nag³ówkowe dla phonon.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-%{snap}
 
 %build
 install -d build
