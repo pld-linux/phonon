@@ -1,27 +1,27 @@
-%define		qtbrver		4.4.1
+%define		qtver		4.4.1
 %define		snap	r848504
 Summary:	Phonon library
-Summary(pl.UTF-8):	Biblioteka phonon
+Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
 Version:	4.2.1
 Release:	0.%{snap}.1
-License:	GPL v2
+License:	LGPL v2.1
 Group:		X11/Libraries
 #Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tar.bz2
 Source0:	%{name}-%{version}-%{snap}.tar.bz2
 # Source0-md5:	556190b555f7258d40dbb86802d24f25
 URL:		http://phonon.kde.org/
-BuildRequires:	QtCore-devel >= %{qtbrver}
-BuildRequires:	QtDBus-devel >= %{qtbrver}
-BuildRequires:	QtNetwork-devel >= %{qtbrver}
-BuildRequires:	QtOpenGL-devel >= %{qtbrver}
-BuildRequires:	QtSql-devel >= %{qtbrver}
-BuildRequires:	QtTest-devel >= %{qtbrver}
+BuildRequires:	QtCore-devel >= %{qtver}
+BuildRequires:	QtDBus-devel >= %{qtver}
+BuildRequires:	QtNetwork-devel >= %{qtver}
+BuildRequires:	QtOpenGL-devel >= %{qtver}
+BuildRequires:	QtSql-devel >= %{qtver}
+BuildRequires:	QtTest-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.86
 BuildRequires:	cmake >= 2.6.1-2
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.0
-BuildRequires:	qt4-build >= %{qtbrver}
-BuildRequires:	qt4-qmake >= %{qtbrver}
+BuildRequires:	qt4-build >= %{qtver}
+BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.293
 Provides:	qt4-phonon
 Obsoletes:	qt4-phonon
@@ -34,9 +34,13 @@ Phonon library.
 Biblioteka phonon.
 
 %package devel
-Summary:        Phonon files
+Summary:        Header files for Phonon library
+Summary(pl.UTF-8):	Pliki nag³ówkowe biblioteki Phonon
 Group:          Development/Libraries
 Requires:	%{name} == %{version}-%{release}
+Requires:	QtCore-devel >= %{qtver}
+Requires:	QtDBus-devel >= %{qtver}
+Requires:	QtGui-devel >= %{qtver}
 Provides:	qt4-phonon-devel
 Obsoletes:	qt4-phonon-devel
 
@@ -83,7 +87,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/kde4/plugins
 %dir %{_libdir}/kde4/plugins/phonon_backend
 %attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_gstreamer.so
-%dir %{_datadir}/dbus-1/interfaces
 %{_datadir}/dbus-1/interfaces/org.kde.Phonon.AudioOutput.xml
 %dir %{_datadir}/kde4
 %dir %{_datadir}/kde4/services
