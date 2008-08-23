@@ -25,6 +25,7 @@ BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.293
 Provides:	qt4-phonon
 Obsoletes:	qt4-phonon
+Obsoletes:	kde4-phonon-xine
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
