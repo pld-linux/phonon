@@ -50,19 +50,6 @@ Header files for phonon.
 %description devel -l pl.UTF-8
 Pliki nag³ówkowe dla phonon.
 
-%package xine
-Summary:	Xine backend to Phonon
-Summary(pl.UTF-8):	Backend Xine dla Phonona
-Group:		X11/Applications
-Requires:	%{name} == %{version}-%{version}
-Obsoletes:	kde4-phonon-xine
-
-%description xine
-Xine backend to Phonon.
-
-%description xine -l pl.UTF-8
-Backend Xine dla Phonona.
-
 %prep
 %setup -q -n %{name}-%{version}-%{snap}
 
@@ -96,6 +83,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libphonon.so.?
 %attr(755,root,root) %{_libdir}/libphononexperimental.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libphononexperimental.so.?
+%attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_xine.so
+%dir %{_datadir}/kde4/services/phononbackends
+%{_datadir}/kde4/services/phononbackends/xine.desktop
 %dir %{_libdir}/kde4
 %dir %{_libdir}/kde4/plugins
 %dir %{_libdir}/kde4/plugins/phonon_backend
@@ -114,9 +104,3 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_includedir}/KDE
 %{_includedir}/KDE/Phonon
 %{_pkgconfigdir}/phonon.pc
-
-%files xine
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_xine.so
-%dir %{_datadir}/kde4/services/phononbackends
-%{_datadir}/kde4/services/phononbackends/xine.desktop
