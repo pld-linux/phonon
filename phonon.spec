@@ -23,6 +23,7 @@ BuildRequires:	gstreamer-plugins-base-devel >= 0.10.0
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.293
+BuildRequires:	xine-lib-devel >= 1.1.15-4
 Provides:	qt4-phonon
 Obsoletes:	qt4-phonon
 Obsoletes:	kde4-phonon-xine
