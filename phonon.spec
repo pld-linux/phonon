@@ -1,15 +1,14 @@
 %define		qtver		4.4.1
-%define		snap	r851285
 Summary:	Phonon library
 Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
-Version:	4.2.1
-Release:	0.%{snap}.1
+Version:	4.2.80
+Release:	1
 License:	LGPL v2.1
 Group:		X11/Libraries
-#Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tar.bz2
-Source0:	%{name}-%{version}-%{snap}.tar.bz2
-# Source0-md5:	6d68c4605a04e68eb52f96d28e31a89d
+#Source0:	%{name}-%{version}-%{snap}.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/unstable/4.1.80/src/%{name}-%{version}.tar.bz2
+# Source0-md5:	885d63087d9861d1660888f10cadd1c5
 URL:		http://phonon.kde.org/
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtDBus-devel >= %{qtver}
@@ -53,7 +52,7 @@ Header files for phonon.
 Pliki nag³ówkowe dla phonon.
 
 %prep
-%setup -q -n %{name}-%{version}-%{snap}
+%setup -q -n %{name}-%{version}
 
 %build
 install -d build
