@@ -2,13 +2,14 @@
 Summary:	Phonon library
 Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
-Version:	4.2.80
+Version:	4.2.96
 Release:	1
 License:	LGPL v2.1
 Group:		X11/Libraries
 #Source0:	%{name}-%{version}-%{snap}.tar.bz2
-Source0:	ftp://ftp.kde.org/pub/kde/unstable/4.1.80/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	885d63087d9861d1660888f10cadd1c5
+#Source0:	ftp://ftp.kde.org/pub/kde/unstable/4.1.80/src/%{name}-%{version}.tar.bz2
+Source0:	http://nomeno.pl/~shadzik/kde4/%{name}-%{version}.tar.bz2
+# Source0-md5:	35b64db6e850df7d492f812a85b16982
 URL:		http://phonon.kde.org/
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtDBus-devel >= %{qtver}
@@ -96,6 +97,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/kde4/services
 %dir %{_datadir}/kde4/services/phononbackends
 %{_datadir}/kde4/services/phononbackends/gstreamer.desktop
+%{_iconsdir}/oxygen/*/apps/phonon-xine.png
 
 %files devel
 %defattr(644,root,root,755)
