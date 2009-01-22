@@ -1,29 +1,32 @@
-# TODO: real summary and description
-%define		qt_ver		4.4.0
+%define		qtver		4.4.3
 Summary:	Phonon library
 Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
-Version:	4.2.0
-Release:	2.1
+Version:	4.3.0
+Release:	1
 License:	LGPL v2.1
 Group:		X11/Libraries
-Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	de80b0f055886a6946acc7886713e23e
+#Source0:	%{name}-%{version}-%{snap}.tar.bz2
+#Source0:	ftp://ftp.kde.org/pub/kde/unstable/4.1.80/src/%{name}-%{version}.tar.bz2
+Source0:	http://nomeno.pl/~shadzik/kde4/%{name}-%{version}.tar.bz2
+# Source0-md5:	f851219ec1fb4eadc7904f053b6b498d
 URL:		http://phonon.kde.org/
-BuildRequires:	QtCore-devel >= %{qt_ver}
-BuildRequires:	QtDBus-devel >= %{qt_ver}
-BuildRequires:	QtNetwork-devel >= %{qt_ver}
-BuildRequires:	QtOpenGL-devel >= %{qt_ver}
-BuildRequires:	QtSql-devel >= %{qt_ver}
-BuildRequires:	QtTest-devel >= %{qt_ver}
-BuildRequires:	automoc4 >= 0.9.84
-BuildRequires:	cmake >= 2.4.5
-BuildRequires:	gstreamer-plugins-base-devel >= 0.10.19
-BuildRequires:	qt4-build >= %{qt_ver}
-BuildRequires:	qt4-qmake >= %{qt_ver}
+BuildRequires:	QtCore-devel >= %{qtver}
+BuildRequires:	QtDBus-devel >= %{qtver}
+BuildRequires:	QtNetwork-devel >= %{qtver}
+BuildRequires:	QtOpenGL-devel >= %{qtver}
+BuildRequires:	QtSql-devel >= %{qtver}
+BuildRequires:	QtTest-devel >= %{qtver}
+BuildRequires:	automoc4 >= 0.9.86
+BuildRequires:	cmake >= 2.6.2
+BuildRequires:	gstreamer-plugins-base-devel >= 0.10.0
+BuildRequires:	qt4-build >= %{qtver}
+BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.293
+BuildRequires:	xine-lib-devel >= 2:1.1.15-4
 Provides:	qt4-phonon
 Obsoletes:	qt4-phonon
+Obsoletes:	kde4-phonon-xine
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,12 +37,12 @@ Biblioteka phonon.
 
 %package devel
 Summary:	Header files for Phonon library
-Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Phonon
+Summary(pl.UTF-8):	Pliki nag�ówkowe biblioteki Phonon
 Group:		X11/Development/Libraries
 Requires:	%{name} == %{version}-%{release}
-Requires:	QtCore-devel >= %{qt_ver}
-Requires:	QtDBus-devel >= %{qt_ver}
-Requires:	QtGui-devel >= %{qt_ver}
+Requires:	QtCore-devel >= %{qtver}
+Requires:	QtDBus-devel >= %{qtver}
+Requires:	QtGui-devel >= %{qtver}
 Provides:	qt4-phonon-devel
 Obsoletes:	qt4-phonon-devel
 
@@ -47,7 +50,7 @@ Obsoletes:	qt4-phonon-devel
 Header files for Phonon library.
 
 %description devel -l pl.UTF-8
-Pliki nagłówkowe biblioteki Phonon.
+Pliki nag�ówkowe biblioteki Phonon.
 
 %prep
 %setup -q
@@ -55,12 +58,12 @@ Pliki nagłówkowe biblioteki Phonon.
 %build
 install -d build
 cd build
-%cmake .. \
+%cmake \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-DCMAKE_VERBOSE_MAKEFILE=ON \
 %if "%{_lib}" == "lib64"
-	-DLIB_SUFFIX=64
+	-DLIB_SUFFIX=64 \
 %endif
+	..
 
 %{__make}
 
@@ -79,9 +82,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libphonon.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libphonon.so.4
+%attr(755,root,root) %ghost %{_libdir}/libphonon.so.?
 %attr(755,root,root) %{_libdir}/libphononexperimental.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libphononexperimental.so.4
+%attr(755,root,root) %ghost %{_libdir}/libphononexperimental.so.?
+%attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_xine.so
+%dir %{_datadir}/kde4/services/phononbackends
+%{_datadir}/kde4/services/phononbackends/xine.desktop
 %dir %{_libdir}/kde4
 %dir %{_libdir}/kde4/plugins
 %dir %{_libdir}/kde4/plugins/phonon_backend
@@ -91,11 +97,12 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/kde4/services
 %dir %{_datadir}/kde4/services/phononbackends
 %{_datadir}/kde4/services/phononbackends/gstreamer.desktop
+%{_iconsdir}/oxygen/*/apps/phonon-xine.png
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libphonon.so
-%attr(755,root,root) %{_libdir}/libphononexperimental.so
+%{_libdir}/libphonon.so
+%{_libdir}/libphononexperimental.so
 %{_includedir}/phonon
 %dir %{_includedir}/KDE
 %{_includedir}/KDE/Phonon
