@@ -3,7 +3,7 @@ Summary:	Phonon library
 Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
 Version:	4.3.0
-Release:	1
+Release:	2
 License:	LGPL v2.1
 Group:		X11/Libraries
 #Source0:	%{name}-%{version}-%{snap}.tar.bz2
@@ -24,6 +24,7 @@ BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.293
 BuildRequires:	xine-lib-devel >= 2:1.1.15-4
+Requires:	kde-common-dirs >= 0.4
 Provides:	qt4-phonon
 Obsoletes:	qt4-phonon
 Obsoletes:	kde4-phonon-xine
