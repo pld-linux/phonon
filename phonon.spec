@@ -37,7 +37,7 @@ Biblioteka phonon.
 
 %package devel
 Summary:        Header files for Phonon library
-Summary(pl.UTF-8):	Pliki nag≥Ûwkowe biblioteki Phonon
+Summary(pl.UTF-8):	Pliki nag≈Ç√≥wkowe biblioteki Phonon
 Group:          Development/Libraries
 Requires:	%{name} == %{version}-%{release}
 Requires:	QtCore-devel >= %{qtver}
@@ -50,7 +50,7 @@ Obsoletes:	qt4-phonon-devel
 Header files for phonon.
 
 %description devel -l pl.UTF-8
-Pliki nag≥Ûwkowe dla phonon.
+Pliki nag≈Ç√≥wkowe dla phonon.
 
 %prep
 %setup -q -n %{name}-%{version}
