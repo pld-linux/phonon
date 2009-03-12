@@ -6,9 +6,7 @@ Version:	4.3.1
 Release:	1
 License:	LGPL v2.1
 Group:		X11/Libraries
-#Source0:	%{name}-%{version}-%{snap}.tar.bz2
-#Source0:	ftp://ftp.kde.org/pub/kde/unstable/4.1.80/src/%{name}-%{version}.tar.bz2
-Source0:	http://nomeno.pl/~shadzik/kde4/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/stable/4.2.1/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	767cb68052c108e95f293f30acdef3fb
 URL:		http://phonon.kde.org/
 BuildRequires:	QtCore-devel >= %{qtver}
