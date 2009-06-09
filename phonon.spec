@@ -1,9 +1,9 @@
 %define		qtver		4.4.3
-Summary:	Phonon library
+Summary:	Multimedia API for KDE 4
 Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
 Version:	4.3.1
-Release:	1
+Release:	2
 License:	LGPL v2.1
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/stable/4.2.1/src/%{name}-%{version}.tar.bz2
@@ -24,19 +24,23 @@ BuildRequires:	rpmbuild(macros) >= 1.293
 BuildRequires:	xine-lib-devel >= 2:1.1.15-4
 Requires:	kde-common-dirs >= 0.4
 Provides:	qt4-phonon
-Obsoletes:	qt4-phonon
 Obsoletes:	kde4-phonon-xine
+Obsoletes:	qt4-phonon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Phonon library.
+Phonon is the multimedia API for KDE 4. Phonon was created to allow
+KDE 4 to be independent of any single multimedia framework such as
+GStreamer or xine and to provide a stable API for KDE 4's lifetime. It
+was done to fix problems of frameworks becoming unmaintained, API
+instability, and to create a simple multimedia API.
 
 %description -l pl.UTF-8
 Biblioteka phonon.
 
 %package devel
 Summary:	Header files for Phonon library
-Summary(pl.UTF-8):	Pliki nag�ówkowe biblioteki Phonon
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Phonon
 Group:		X11/Development/Libraries
 Requires:	%{name} == %{version}-%{release}
 Requires:	QtCore-devel >= %{qtver}
@@ -49,7 +53,7 @@ Obsoletes:	qt4-phonon-devel
 Header files for Phonon library.
 
 %description devel -l pl.UTF-8
-Pliki nag�ówkowe biblioteki Phonon.
+Pliki nagłówkowe biblioteki Phonon.
 
 %prep
 %setup -q
