@@ -91,7 +91,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_xine.so
 %dir %{_datadir}/kde4/services/phononbackends
 %{_datadir}/kde4/services/phononbackends/xine.desktop
-%dir %{_libdir}/kde4
 %dir %{_libdir}/kde4/plugins
 %dir %{_libdir}/kde4/plugins/phonon_backend
 %attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_gstreamer.so
