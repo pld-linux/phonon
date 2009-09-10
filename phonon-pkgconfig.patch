@@ -1,0 +1,8 @@
+--- phonon-4.3.1/phonon.pc.cmake.orig	2008-11-24 18:12:03.000000000 +0100
++++ phonon-4.3.1/phonon.pc.cmake	2009-09-10 12:36:43.000000000 +0200
+@@ -8,4 +8,4 @@
+ Version: @PHONON_LIB_MAJOR_VERSION@.@PHONON_LIB_MINOR_VERSION@.@PHONON_LIB_PATCH_VERSION@
+ Requires: QtCore QtGui QtDBus
+ Libs: -L${libdir} -lphonon
+-Cflags: -I${includedir}
++Cflags: -I${includedir} -I${includedir}/KDE
