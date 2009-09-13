@@ -92,18 +92,20 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libphonon.so.?
 %attr(755,root,root) %{_libdir}/libphononexperimental.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libphononexperimental.so.?
-%attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_xine.so
-%dir %{_datadir}/kde4/services/phononbackends
-%{_datadir}/kde4/services/phononbackends/xine.desktop
-%dir %{_libdir}/kde4/plugins
-%dir %{_libdir}/kde4/plugins/phonon_backend
-%attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_gstreamer.so
-%{_datadir}/dbus-1/interfaces/org.kde.Phonon.AudioOutput.xml
 %dir %{_datadir}/kde4
 %dir %{_datadir}/kde4/services
 %dir %{_datadir}/kde4/services/phononbackends
-%{_datadir}/kde4/services/phononbackends/gstreamer.desktop
+%dir %{_datadir}/kde4/services/phononbackends
+%dir %{_libdir}/kde4/plugins
+%dir %{_libdir}/kde4/plugins/phonon_backend
+%{_datadir}/dbus-1/interfaces/org.kde.Phonon.AudioOutput.xml
+
+%attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_xine.so
+%{_datadir}/kde4/services/phononbackends/xine.desktop
 %{_iconsdir}/oxygen/*/apps/phonon-xine.png
+
+%attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_gstreamer.so
+%{_datadir}/kde4/services/phononbackends/gstreamer.desktop
 
 %files devel
 %defattr(644,root,root,755)
