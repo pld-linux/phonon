@@ -3,12 +3,11 @@ Summary:	Multimedia API for KDE 4
 Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
 Version:	4.3.1
-Release:	4
+Release:	5
 License:	LGPL v2.1
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/stable/4.3.1/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	767cb68052c108e95f293f30acdef3fb
-Patch0:		%{name}-pkgconfig.patch
 URL:		http://phonon.kde.org/
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtDBus-devel >= %{qtver}
@@ -77,6 +76,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+mkdir -p $RPM_BUILD_ROOT%{_includedir}/qt4
+ln -s ../phonon $RPM_BUILD_ROOT/%{_includedir}/qt4/phonon
+ln -s ../KDE/Phonon $RPM_BUILD_ROOT/%{_includedir}/phonon/Phonon
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -109,4 +112,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/phonon
 %dir %{_includedir}/KDE
 %{_includedir}/KDE/Phonon
+%{_includedir}/qt4/phonon
 %{_pkgconfigdir}/phonon.pc
