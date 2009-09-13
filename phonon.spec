@@ -3,7 +3,7 @@ Summary:	Multimedia API for KDE 4
 Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
 Version:	4.3.1
-Release:	5
+Release:	6
 License:	LGPL v2.1
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/stable/4.3.1/src/%{name}-%{version}.tar.bz2
@@ -23,8 +23,8 @@ BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.293
 BuildRequires:	xine-lib-devel >= 2:1.1.15-4
 Requires:	kde-common-dirs >= 0.4
+Requires:	qt4-phonon-backend
 Provides:	qt4-phonon
-Obsoletes:	kde4-phonon-xine
 Obsoletes:	qt4-phonon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -54,6 +54,33 @@ Header files for Phonon library.
 
 %description devel -l pl.UTF-8
 Pliki nagłówkowe biblioteki Phonon.
+
+%package backend-xine
+Summary:	Xine backend for Phonon
+Summary(pl.UTF-8):	Wtyczki Xine dla Phonon
+Group:		Libraries
+Requires:	%{name} = %{version}-%{release}
+Provides:	qt4-phonon-backend = %{version}
+Obsoletes:	kde4-phonon-xine
+
+%description backend-xine
+Xine backend for Phonon.
+
+%description backend-xine -l pl.UTF-8
+Wtyczki Xine dla Phonon.
+
+%package backend-gstreamer
+Summary:	GStreamer backend for Phonon
+Summary(pl.UTF-8):	Wtyczki GStreamera dla Phonon
+Group:		Libraries
+Requires:	%{name} = %{version}-%{release}
+Provides:	qt4-phonon-backend = %{version}
+
+%description backend-gstreamer
+GStreamer backend for Phonon.
+
+%description backend-gstreamer -l pl.UTF-8
+Wtyczki GStreamera dla Phonon.
 
 %prep
 %setup -q
@@ -100,10 +127,12 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/kde4/plugins/phonon_backend
 %{_datadir}/dbus-1/interfaces/org.kde.Phonon.AudioOutput.xml
 
+%files backend-xine
 %attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_xine.so
 %{_datadir}/kde4/services/phononbackends/xine.desktop
 %{_iconsdir}/oxygen/*/apps/phonon-xine.png
 
+%files backend-gstreamer
 %attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_gstreamer.so
 %{_datadir}/kde4/services/phononbackends/gstreamer.desktop
 
