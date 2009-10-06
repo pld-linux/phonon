@@ -1,0 +1,11 @@
+--- phonon-4.3.1/phonon.pc.cmake.orig	2008-11-24 18:12:03.000000000 +0100
++++ phonon-4.3.1/phonon.pc.cmake	2009-10-06 17:22:19.000000000 +0200
+@@ -1,7 +1,7 @@
+ prefix=@CMAKE_INSTALL_PREFIX@
+ exec_prefix=@EXEC_INSTALL_PREFIX@
+ libdir=@LIB_INSTALL_DIR@
+-includedir=@INCLUDE_INSTALL_DIR@
++includedir=@INCLUDE_INSTALL_DIR@/KDE
+ 
+ Name: Phonon
+ Description: Phonon library needed to build applications
