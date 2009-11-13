@@ -93,6 +93,7 @@ Wtyczki GStreamera dla Phonon.
 install -d build
 cd build
 %cmake \
+	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 %if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64 \
