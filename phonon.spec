@@ -1,5 +1,5 @@
 %define		qtver		4.5.1
-Summary:	Multimedia API for KDE 4
+Summary:	Multimedia API for Qt4/KDE4
 Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
 Version:	4.3.1
@@ -30,11 +30,13 @@ Obsoletes:	qt4-phonon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Phonon is the multimedia API for KDE 4. Phonon was created to allow
-KDE 4 to be independent of any single multimedia framework such as
-GStreamer or xine and to provide a stable API for KDE 4's lifetime. It
-was done to fix problems of frameworks becoming unmaintained, API
-instability, and to create a simple multimedia API.
+Phonon is the multimedia API for Qt4/KDE4.
+
+Phonon was created to allow KDE4 to be independent of any single
+multimedia framework such as GStreamer or Xine and to provide a stable
+API for KDE4's lifetime. It was done to fix problems of frameworks
+becoming unmaintained, API instability, and to create a simple
+multimedia API.
 
 %description -l pl.UTF-8
 Biblioteka phonon.
@@ -105,9 +107,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mkdir -p $RPM_BUILD_ROOT%{_includedir}/qt4
-ln -s ../phonon $RPM_BUILD_ROOT/%{_includedir}/qt4/phonon
-ln -s ../KDE/Phonon $RPM_BUILD_ROOT/%{_includedir}/phonon/Phonon
+install -d $RPM_BUILD_ROOT%{_includedir}/qt4
+ln -s ../phonon $RPM_BUILD_ROOT%{_includedir}/qt4/phonon
+ln -s ../KDE/Phonon $RPM_BUILD_ROOT%{_includedir}/phonon/Phonon
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -130,11 +132,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/dbus-1/interfaces/org.kde.Phonon.AudioOutput.xml
 
 %files backend-xine
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_xine.so
 %{_datadir}/kde4/services/phononbackends/xine.desktop
 %{_iconsdir}/oxygen/*/apps/phonon-xine.png
 
 %files backend-gstreamer
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_gstreamer.so
 %{_datadir}/kde4/services/phononbackends/gstreamer.desktop
 
