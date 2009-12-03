@@ -7,8 +7,7 @@ Version:	4.3.80
 Release:	1
 License:	LGPL v2.1
 Group:		X11/Libraries
-#Source0:	ftp://ftp.kde.org/pub/kde/stable/4.3.1/src/%{name}-%{version}.tar.bz2
-Source0:	http://shadzik.nomeno.pl/kde4/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.kde.org/pub/kde/unstable/phonon/%{name}-%{version}.tar.bz2
 # Source0-md5:	6b0c5554291615433c14c3c38f741690
 Patch0:		%{name}-pkg.patch
 URL:		http://phonon.kde.org/
