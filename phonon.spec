@@ -130,6 +130,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/kde4/services
 %dir %{_datadir}/kde4/services/phononbackends
 %dir %{_datadir}/kde4/services/phononbackends
+%dir %{_libdir}/kde4
 %dir %{_libdir}/kde4/plugins
 %dir %{_libdir}/kde4/plugins/phonon_backend
 %{_datadir}/dbus-1/interfaces/org.kde.Phonon.AudioOutput.xml
