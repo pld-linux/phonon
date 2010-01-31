@@ -25,7 +25,7 @@ BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.293
 BuildRequires:	xine-lib-devel >= 2:1.1.15-4
 Requires:	kde-common-dirs >= 0.4
-Requires:	qt4-phonon-backend
+Suggests:	qt4-phonon-backend
 Provides:	qt4-phonon
 Obsoletes:	qt4-phonon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
