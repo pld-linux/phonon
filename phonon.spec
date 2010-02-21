@@ -21,6 +21,7 @@ BuildRequires:	automoc4 >= 0.9.86
 BuildRequires:	cmake >= 2.6.2
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.0
 BuildRequires:	pkgconfig
+BuildRequires:	pulseaudio-devel >= 0.9.21
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.293
