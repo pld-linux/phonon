@@ -4,7 +4,7 @@ Summary:	Multimedia API for Qt4/KDE4
 Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
 Version:	4.3.80
-Release:	2
+Release:	3
 License:	LGPL v2.1
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{name}-%{version}.tar.bz2
@@ -18,7 +18,7 @@ BuildRequires:	QtOpenGL-devel >= %{qtver}
 BuildRequires:	QtSql-devel >= %{qtver}
 BuildRequires:	QtTest-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.86
-BuildRequires:	cmake >= 2.6.2
+BuildRequires:	cmake >= 2.8.0
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.0
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 0.9.21
@@ -66,6 +66,7 @@ Summary:	Xine backend for Phonon
 Summary(pl.UTF-8):	Wtyczki Xine dla Phonon
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	xine-decode-ogg
 Provides:	qt4-phonon-backend = %{version}
 Obsoletes:	kde4-phonon-xine
 
