@@ -1,14 +1,14 @@
-%define		qtver		4.6.0
+%define		qtver		4.6.2
 
 Summary:	Multimedia API for Qt4/KDE4
 Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
-Version:	4.3.80
-Release:	3
+Version:	4.4.0
+Release:	1
 License:	LGPL v2.1
 Group:		X11/Libraries
-Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{name}-%{version}.tar.bz2
-# Source0-md5:	6b0c5554291615433c14c3c38f741690
+Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tgz
+# Source0-md5:	80544b876cf0e0af05f2303b3f534351
 Patch0:		%{name}-pkg.patch
 URL:		http://phonon.kde.org/
 BuildRequires:	QtCore-devel >= %{qtver}
@@ -90,7 +90,7 @@ GStreamer backend for Phonon.
 Wtyczki GStreamera dla Phonon.
 
 %prep
-%setup -q
+%setup -q -n %{name}-4.4
 %patch0 -p1
 
 %build
