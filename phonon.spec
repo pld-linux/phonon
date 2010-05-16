@@ -4,7 +4,7 @@ Summary:	Multimedia API for Qt4/KDE4
 Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
 Version:	4.4.0
-Release:	1
+Release:	2
 License:	LGPL v2.1
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tgz
@@ -26,7 +26,7 @@ BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.293
 BuildRequires:	xine-lib-devel >= 2:1.1.15-4
-Requires:	kde-common-dirs >= 0.4
+Requires:	kde-common-dirs >= 0.5
 Suggests:	qt4-phonon-backend
 Provides:	qt4-phonon
 Obsoletes:	qt4-phonon
@@ -132,8 +132,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/kde4/services
 %dir %{_datadir}/kde4/services/phononbackends
 %dir %{_datadir}/kde4/services/phononbackends
-%dir %{_libdir}/kde4
-%dir %{_libdir}/kde4/plugins
 %dir %{_libdir}/kde4/plugins/phonon_backend
 %{_datadir}/dbus-1/interfaces/org.kde.Phonon.AudioOutput.xml
 
