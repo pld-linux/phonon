@@ -4,7 +4,7 @@ Summary:	Multimedia API for Qt4/KDE4
 Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
 Version:	4.4.2
-Release:	1
+Release:	2
 License:	LGPL v2.1
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tar.bz2
@@ -137,7 +137,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_xine.so
 %{_datadir}/kde4/services/phononbackends/xine.desktop
 %{_iconsdir}/oxygen/*/apps/phonon-xine.png
-%{_iconsdir}/oxygen/*/apps/phonon-xine.svgz
 
 %files backend-gstreamer
 %defattr(644,root,root,755)
