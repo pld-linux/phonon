@@ -1,4 +1,4 @@
-%define		qtver		4.6.2
+%define		qtver		4.6.3
 
 Summary:	Multimedia API for Qt4/KDE4
 Summary(pl.UTF-8):	Biblioteka Phonon
