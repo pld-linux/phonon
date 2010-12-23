@@ -1,10 +1,9 @@
 %define		qtver		4.6.3
-
 Summary:	Multimedia API for Qt4/KDE4
 Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
 Version:	4.4.2
-Release:	2
+Release:	3
 License:	LGPL v2.1
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tar.bz2
@@ -35,11 +34,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Phonon is the multimedia API for Qt4/KDE4.
 
-Phonon was created to allow KDE4 to be independent of any single
-multimedia framework such as GStreamer or Xine and to provide a stable
-API for KDE4's lifetime. It was done to fix problems of frameworks
-becoming unmaintained, API instability, and to create a simple
-multimedia API.
+Phonon was originally created to allow KDE 4 to be independent of any
+single multimedia framework such as GStreamer or Xine and to provide a
+stable API for KDE4's lifetime. It was done to fix problems of
+frameworks becoming unmaintained, API instability, and to create a
+simple multimedia API.
 
 %description -l pl.UTF-8
 Biblioteka phonon.
@@ -48,7 +47,7 @@ Biblioteka phonon.
 Summary:	Header files for Phonon library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Phonon
 Group:		X11/Development/Libraries
-Requires:	%{name} == %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	QtCore-devel >= %{qtver}
 Requires:	QtDBus-devel >= %{qtver}
 Requires:	QtGui-devel >= %{qtver}
@@ -125,9 +124,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libphonon.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libphonon.so.?
+%attr(755,root,root) %ghost %{_libdir}/libphonon.so.4
 %attr(755,root,root) %{_libdir}/libphononexperimental.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libphononexperimental.so.?
+%attr(755,root,root) %ghost %{_libdir}/libphononexperimental.so.4
 %dir %{_datadir}/kde4/services/phononbackends
 %dir %{_libdir}/kde4/plugins/phonon_backend
 %{_datadir}/dbus-1/interfaces/org.kde.Phonon.AudioOutput.xml
