@@ -1,4 +1,5 @@
 %define		qtver		4.7.1
+
 Summary:	Multimedia API for Qt4/KDE4
 Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
