@@ -1,13 +1,13 @@
-%define		qtver		4.6.3
+%define		qtver		4.7.1
 Summary:	Multimedia API for Qt4/KDE4
 Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
-Version:	4.4.2
-Release:	3
+Version:	4.4.4
+Release:	1
 License:	LGPL v2.1
 Group:		X11/Libraries
-Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	d9eab28383783261254f1cef3b92a3fa
+Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/src/%{name}-%{version}.tar.bz2
+# Source0-md5:	1deb14ecb2185e1f2fe2741a0bd46852
 Patch0:		%{name}-pkg.patch
 URL:		http://phonon.kde.org/
 BuildRequires:	QtCore-devel >= %{qtver}
@@ -60,34 +60,6 @@ Header files for Phonon library.
 %description devel -l pl.UTF-8
 Pliki nagłówkowe biblioteki Phonon.
 
-%package backend-xine
-Summary:	Xine backend for Phonon
-Summary(pl.UTF-8):	Wtyczki Xine dla Phonon
-Group:		Libraries
-Requires:	%{name} = %{version}-%{release}
-Requires:	xine-decode-ogg
-Provides:	qt4-phonon-backend = %{version}
-Obsoletes:	kde4-phonon-xine
-
-%description backend-xine
-Xine backend for Phonon.
-
-%description backend-xine -l pl.UTF-8
-Wtyczki Xine dla Phonon.
-
-%package backend-gstreamer
-Summary:	GStreamer backend for Phonon
-Summary(pl.UTF-8):	Wtyczki GStreamera dla Phonon
-Group:		Libraries
-Requires:	%{name} = %{version}-%{release}
-Provides:	qt4-phonon-backend = %{version}
-
-%description backend-gstreamer
-GStreamer backend for Phonon.
-
-%description backend-gstreamer -l pl.UTF-8
-Wtyczki GStreamera dla Phonon.
-
 %prep
 %setup -q
 %patch0 -p1
@@ -127,20 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libphonon.so.4
 %attr(755,root,root) %{_libdir}/libphononexperimental.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libphononexperimental.so.4
-%dir %{_datadir}/kde4/services/phononbackends
-%dir %{_libdir}/kde4/plugins/phonon_backend
 %{_datadir}/dbus-1/interfaces/org.kde.Phonon.AudioOutput.xml
-
-%files backend-xine
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_xine.so
-%{_datadir}/kde4/services/phononbackends/xine.desktop
-%{_iconsdir}/oxygen/*/apps/phonon-xine.png
-
-%files backend-gstreamer
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/kde4/plugins/phonon_backend/phonon_gstreamer.so
-%{_datadir}/kde4/services/phononbackends/gstreamer.desktop
 
 %files devel
 %defattr(644,root,root,755)
@@ -151,3 +110,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/KDE/Phonon
 %{_includedir}/qt4/phonon
 %{_pkgconfigdir}/phonon.pc
+%{_datadir}/phonon-buildsystem
+%{_datadir}/qt4/mkspecs/modules/qt_phonon.pri
