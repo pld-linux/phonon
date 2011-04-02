@@ -4,7 +4,7 @@ Summary:	Multimedia API for Qt4/KDE4
 Summary(pl.UTF-8):	Biblioteka Phonon
 Name:		phonon
 Version:	4.5.0
-Release:	1
+Release:	2
 License:	LGPL v2.1
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/src/%{name}-%{version}.tar.bz2
@@ -20,6 +20,7 @@ BuildRequires:	QtTest-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.86
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.0
+BuildRequires:	libqzeitgeist-devel
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 0.9.21
 BuildRequires:	qt4-build >= %{qtver}
