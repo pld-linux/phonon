@@ -1,11 +1,11 @@
 %define		qtver		4.7.2
 
-Summary:	Multimedia API for Qt4/KDE4
-Summary(pl.UTF-8):	Biblioteka Phonon
+Summary:	Phonon: multimedia API for Qt4/KDE4
+Summary(pl.UTF-8):	Phonon - biblioteka multimedialna dla Qt4/KDE4
 Name:		phonon
 Version:	4.5.0
 Release:	2
-License:	LGPL v2.1
+License:	LGPL v2.1 or LGPL v3
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	32f8d388c18fde2e23dea7bb103f9713
@@ -25,7 +25,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 0.9.21
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
-BuildRequires:	rpmbuild(macros) >= 1.293
+BuildRequires:	rpmbuild(macros) >= 1.603
 BuildRequires:	xine-lib-devel >= 2:1.1.15-4
 Requires:	kde-common-dirs >= 0.5
 Suggests:	qt4-phonon-backend
@@ -43,7 +43,14 @@ frameworks becoming unmaintained, API instability, and to create a
 simple multimedia API.
 
 %description -l pl.UTF-8
-Biblioteka phonon.
+Phonon to biblioteka multimedialna dla Qt4/KDE4.
+
+Pierwotnie powstała, aby pozwolić na niezależność KDE 4 od konkretnego
+środowiska multimedialnego, takiego jak GStreamer czy Xine, oraz
+zapewnić stabilne API na cały czas życia KDE4. Została stworzona w
+celu wyeliminowania problemów z porzucaniem bibliotek i
+niestabilnością ich API, a także w celu stworzenia prostego API
+multimedialnego.
 
 %package devel
 Summary:	Header files for Phonon library
@@ -69,19 +76,12 @@ Pliki nagłówkowe biblioteki Phonon.
 %build
 install -d build
 cd build
-%cmake \
-	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-%if "%{_lib}" == "lib64"
-	-DLIB_SUFFIX=64 \
-%endif
-	..
+%cmake ..
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -110,8 +110,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/libphonon.so
-%{_libdir}/libphononexperimental.so
+%attr(755,root,root) %{_libdir}/libphonon.so
+%attr(755,root,root) %{_libdir}/libphononexperimental.so
 %{_includedir}/phonon
 %dir %{_includedir}/KDE
 %{_includedir}/KDE/Phonon
