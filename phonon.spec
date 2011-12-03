@@ -1,14 +1,14 @@
-%define		qtver		4.7.2
+%define		qtver		4.7.4
 
 Summary:	Phonon: multimedia API for Qt4/KDE4
 Summary(pl.UTF-8):	Phonon - biblioteka multimedialna dla Qt4/KDE4
 Name:		phonon
-Version:	4.5.0
-Release:	2
+Version:	4.5.1
+Release:	1
 License:	LGPL v2.1 or LGPL v3
 Group:		X11/Libraries
-Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	32f8d388c18fde2e23dea7bb103f9713
+Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/src/%{name}-%{version}.tar.xz
+# Source0-md5:	3df071b7f9996afcd67b18958955ecdd
 Patch0:		%{name}-pkg.patch
 URL:		http://phonon.kde.org/
 BuildRequires:	QtCore-devel >= %{qtver}
