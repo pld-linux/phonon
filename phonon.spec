@@ -92,6 +92,9 @@ install -d $RPM_BUILD_ROOT%{_datadir}/kde4/services/phononbackends
 ln -s ../phonon $RPM_BUILD_ROOT%{_includedir}/qt4/phonon
 ln -s ../KDE/Phonon $RPM_BUILD_ROOT%{_includedir}/phonon/Phonon
 
+# currently packaged in QtDesigner
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/qt4/plugins/designer/libphononwidgets.so
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
