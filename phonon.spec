@@ -120,5 +120,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/KDE/Phonon
 %{_includedir}/qt4/phonon
 %{_pkgconfigdir}/phonon.pc
-%{_datadir}/phonon-buildsystem
+%{_datadir}/phonon/buildsystem
 %{_datadir}/qt4/mkspecs/modules/qt_phonon.pri
