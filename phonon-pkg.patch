@@ -1,12 +1,11 @@
---- phonon-4.3.1/phonon.pc.cmake.orig	2008-11-24 18:12:03.000000000 +0100
-+++ phonon-4.3.1/phonon.pc.cmake	2009-10-06 17:22:19.000000000 +0200
+--- phonon-4.6.0/phonon.pc.cmake~	2011-12-19 21:30:45.000000000 +0100
++++ phonon-4.6.0/phonon.pc.cmake	2011-12-24 13:47:12.687893180 +0100
 @@ -1,7 +1,7 @@
  prefix=@CMAKE_INSTALL_PREFIX@
  exec_prefix=@EXEC_INSTALL_PREFIX@
- libdir=@LIB_INSTALL_DIR@
--includedir=@INCLUDE_INSTALL_DIR@
-+includedir=@INCLUDE_INSTALL_DIR@/KDE
- buildsystemdir=@BUILDSYSTEM_INSTALL_DIR@
+ libdir=@ABS_LIB_INSTALL_DIR@
+-includedir=@ABS_INCLUDE_INSTALL_DIR@
++includedir=@ABS_INCLUDE_INSTALL_DIR@/KDE
+ buildsystemdir=@ABS_BUILDSYSTEM_INSTALL_DIR@
  
  Name: Phonon
-
