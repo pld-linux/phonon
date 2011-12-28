@@ -19,15 +19,15 @@ BuildRequires:	QtSql-devel >= %{qtver}
 BuildRequires:	QtTest-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.86
 BuildRequires:	cmake >= 2.8.0
-BuildRequires:	gstreamer-plugins-base-devel >= 0.10.0
-BuildRequires:	libqzeitgeist-devel
+BuildRequires:	glib2-devel >= 2.0
+BuildRequires:	libqzeitgeist-devel >= 0.8
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 0.9.21
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.603
-BuildRequires:	xine-lib-devel >= 2:1.1.15-4
 Requires:	kde-common-dirs >= 0.5
+Requires:	libqzeitgeist >= 0.8
 Suggests:	qt4-phonon-backend
 Provides:	qt4-phonon
 Obsoletes:	qt4-phonon
@@ -76,7 +76,9 @@ Pliki nagłówkowe biblioteki Phonon.
 %build
 install -d build
 cd build
-%cmake ..
+# disable designer plugin - currently packaged in QtDesigner package
+%cmake .. \
+	-DPHONON_BUILD_DESIGNER_PLUGIN=OFF
 
 %{__make}
 
@@ -91,9 +93,6 @@ install -d $RPM_BUILD_ROOT%{_libdir}/kde4/plugins/phonon_backend
 install -d $RPM_BUILD_ROOT%{_datadir}/kde4/services/phononbackends
 ln -s ../phonon $RPM_BUILD_ROOT%{_includedir}/qt4/phonon
 ln -s ../KDE/Phonon $RPM_BUILD_ROOT%{_includedir}/phonon/Phonon
-
-# currently packaged in QtDesigner
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/qt4/plugins/designer/libphononwidgets.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -120,6 +119,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/KDE/Phonon
 %{_includedir}/qt4/phonon
 %{_pkgconfigdir}/phonon.pc
+%{_libdir}/cmake/phonon
 %dir %{_datadir}/phonon
 %{_datadir}/phonon/buildsystem
 %{_datadir}/qt4/mkspecs/modules/qt_phonon.pri
