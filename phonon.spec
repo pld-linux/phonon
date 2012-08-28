@@ -29,7 +29,7 @@ BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.603
 Requires:	kde-common-dirs >= 0.5
 Requires:	libqzeitgeist >= 0.8
-Requires	qt4-phonon-backend
+Requires:	qt4-phonon-backend
 Provides:	qt4-phonon
 Obsoletes:	qt4-phonon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
