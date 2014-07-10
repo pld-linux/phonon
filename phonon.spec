@@ -1,16 +1,17 @@
+# TODO: build Qt5 version
 %define		qtver		4.8.1
 
 Summary:	Phonon: multimedia API for Qt4/KDE4
 Summary(pl.UTF-8):	Phonon - biblioteka multimedialna dla Qt4/KDE4
 Name:		phonon
-Version:	4.6.0
-Release:	4
+Version:	4.7.2
+Release:	1
 License:	LGPL v2.1 or LGPL v3
 Group:		X11/Libraries
-Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/src/%{name}-%{version}.tar.xz
-# Source0-md5:	bbe0c1c62ed14c31479c4c1a6cf1e173
+Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tar.xz
+# Source0-md5:	a8b722a11a301fc2cda7ff8228209531
 Patch0:		%{name}-pkg.patch
-Patch1:		fix-plugindir-for-qt-app.patch
+#Patch1:		fix-plugindir-for-qt-app.patch
 URL:		http://phonon.kde.org/
 BuildRequires:	QtCore-devel >= %{qtver}
 BuildRequires:	QtDBus-devel >= %{qtver}
@@ -73,7 +74,7 @@ Pliki nagłówkowe biblioteki Phonon.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
+#%patch1 -p1
 
 
 %build
