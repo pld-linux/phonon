@@ -205,9 +205,9 @@ rm -rf $RPM_BUILD_ROOT
 %files qt5
 %defattr(644,root,root,755)
 %attr(755,root,root) %ghost %{_libdir}/libphonon4qt5.so.4
-%attr(755,root,root) %{_libdir}/libphonon4qt5.so.4.7.2
+%attr(755,root,root) %{_libdir}/libphonon4qt5.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libphonon4qt5experimental.so.4
-%attr(755,root,root) %{_libdir}/libphonon4qt5experimental.so.4.7.2
+%attr(755,root,root) %{_libdir}/libphonon4qt5experimental.so.*.*.*
 %{_datadir}/dbus-1/interfaces/org.kde.Phonon4Qt5.AudioOutput.xml
 %{_datadir}/phonon4qt5
 
