@@ -1,8 +1,9 @@
-# Conditional builds
+#
+# Conditional build:
 %bcond_without qt5	# do not build Qt5 version
 
-%define		qtver		4.8.1
-%define		qt5ver		5.3.1
+%define		qt4_ver		4.8.1
+%define		qt5_ver		5.3.1
 
 Summary:	Phonon: multimedia API for Qt4/KDE4
 Summary(pl.UTF-8):	Phonon - biblioteka multimedialna dla Qt4/KDE4
@@ -14,32 +15,38 @@ Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tar.xz
 # Source0-md5:	f8893c0f8a7ee449492262a05e7fca89
 Patch0:		%{name}-pkg.patch
-#Patch1: fix-plugindir-for-qt-app.patch
 URL:		http://phonon.kde.org/
 %if %{with qt5}
-BuildRequires:	Qt5DBus-devel >= %{qt5ver}
-BuildRequires:	Qt5Designer-devel >= %{qt5ver}
-BuildRequires:	Qt5OpenGL-devel >= %{qt5ver}
-BuildRequires:	Qt5Qml-devel >= %{qt5ver}
-BuildRequires:	Qt5Widgets-devel >= %{qt5ver}
-BuildRequires:	qt5-build >= %{qt5ver}
-BuildRequires:	qt5-qmake >= %{qt5ver}
+BuildRequires:	Qt5DBus-devel >= %{qt5_ver}
+BuildRequires:	Qt5Declarative-devel >= %{qt5_ver}
+BuildRequires:	Qt5Designer-devel >= %{qt5_ver}
+BuildRequires:	Qt5Gui-devel >= %{qt5_ver}
+BuildRequires:	Qt5OpenGL-devel >= %{qt5_ver}
+BuildRequires:	Qt5Qml-devel >= %{qt5_ver}
+BuildRequires:	Qt5Widgets-devel >= %{qt5_ver}
+BuildRequires:	qt5-build >= %{qt5_ver}
+BuildRequires:	qt5-qmake >= %{qt5_ver}
 %endif
-BuildRequires:	QtCore-devel >= %{qtver}
-BuildRequires:	QtDBus-devel >= %{qtver}
-BuildRequires:	QtNetwork-devel >= %{qtver}
-BuildRequires:	QtOpenGL-devel >= %{qtver}
-BuildRequires:	QtSql-devel >= %{qtver}
-BuildRequires:	QtTest-devel >= %{qtver}
-BuildRequires:	automoc4 >= 0.9.86
+BuildRequires:	QtCore-devel >= %{qt4_ver}
+BuildRequires:	QtDBus-devel >= %{qt4_ver}
+BuildRequires:	QtDeclarative-devel >= %{qt4_ver}
+BuildRequires:	QtGui-devel >= %{qt4_ver}
+BuildRequires:	QtNetwork-devel >= %{qt4_ver}
+BuildRequires:	QtOpenGL-devel >= %{qt4_ver}
+BuildRequires:	QtSql-devel >= %{qt4_ver}
+BuildRequires:	QtTest-devel >= %{qt4_ver}
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	libqzeitgeist-devel >= 0.8
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 0.9.21
-BuildRequires:	qt4-build >= %{qtver}
-BuildRequires:	qt4-qmake >= %{qtver}
+BuildRequires:	qt4-build >= %{qt4_ver}
+BuildRequires:	qt4-qmake >= %{qt4_ver}
 BuildRequires:	rpmbuild(macros) >= 1.603
+Requires:	QtCore >= %{qt4_ver}
+Requires:	QtDBus >= %{qt4_ver}
+Requires:	QtGui >= %{qt4_ver}
+Requires:	QtOpenGL >= %{qt4_ver}
 Requires:	kde-common-dirs >= 0.5
 Requires:	libqzeitgeist >= 0.8
 Requires:	qt4-phonon-backend
@@ -71,9 +78,9 @@ Summary:	Header files for Phonon library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Phonon
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	QtCore-devel >= %{qtver}
-Requires:	QtDBus-devel >= %{qtver}
-Requires:	QtGui-devel >= %{qtver}
+Requires:	QtCore-devel >= %{qt4_ver}
+Requires:	QtDBus-devel >= %{qt4_ver}
+Requires:	QtGui-devel >= %{qt4_ver}
 Provides:	qt4-phonon-devel
 Obsoletes:	qt4-phonon-devel
 
@@ -83,10 +90,28 @@ Header files for Phonon library.
 %description devel -l pl.UTF-8
 Pliki nagłówkowe biblioteki Phonon.
 
+%package -n QtDeclarative-plugin-phonon
+Summary:	Phonon plugin for Qt4 QtDeclarative library
+Summary(pl.UTF-8):	Wtyczka Phonon dla biblioteki Qt4 QtDeclarative
+Group:		X11/Libraries
+Requires:	%{name} = %{version}-%{release}
+Requires:	QtDeclarative >= %{qt4_ver}
+
+%description -n QtDeclarative-plugin-phonon
+Phonon plugin for Qt4 QtDeclarative library.
+
+%description -n QtDeclarative-plugin-phonon -l pl.UTF-8
+Wtyczka Phonon dla biblioteki Qt4 QtDeclarative.
+
 %package qt5
 Summary:	Phonon: multimedia API for Qt5/KDE5
 Summary(pl.UTF-8):	Phonon - biblioteka multimedialna dla Qt5/KDE5
 Group:		X11/Libraries
+Requires:	Qt5Core >= %{qt5_ver}
+Requires:	Qt5DBus >= %{qt5_ver}
+Requires:	Qt5Gui >= %{qt5_ver}
+Requires:	Qt5OpenGL >= %{qt5_ver}
+Requires:	Qt5Widgets >= %{qt5_ver}
 Provides:	qt5-phonon
 Obsoletes:	qt5-phonon
 
@@ -114,9 +139,9 @@ Summary:	Header files for Phonon library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Phonon
 Group:		X11/Development/Libraries
 Requires:	%{name}-qt5 = %{version}-%{release}
-Requires:	Qt5Core-devel >= %{qt5ver}
-Requires:	Qt5DBus-devel >= %{qt5ver}
-Requires:	Qt5Gui-devel >= %{qt5ver}
+Requires:	Qt5Core-devel >= %{qt5_ver}
+Requires:	Qt5DBus-devel >= %{qt5_ver}
+Requires:	Qt5Gui-devel >= %{qt5_ver}
 Provides:	qt5-phonon-devel
 Obsoletes:	qt5-phonon-devel
 
@@ -126,10 +151,35 @@ Header files for Phonon library.
 %description qt5-devel -l pl.UTF-8
 Pliki nagłówkowe biblioteki Phonon.
 
+%package -n Qt5Declarative-plugin-phonon
+Summary:	Phonon plugin for Qt5 QtDeclarative library
+Summary(pl.UTF-8):	Wtyczka Phonon dla biblioteki Qt5 QtDeclarative
+Group:		X11/Libraries
+Requires:	%{name} = %{version}-%{release}
+Requires:	Qt5Declarative >= %{qt5_ver}
+
+%description -n Qt5Declarative-plugin-phonon
+Phonon plugin for Qt5 QtDeclarative library.
+
+%description -n Qt5Declarative-plugin-phonon -l pl.UTF-8
+Wtyczka Phonon dla biblioteki Qt5 QtDeclarative.
+
+%package -n Qt5Designer-plugin-phonon
+Summary:	Phonon plugin for Qt5 QtDesigner
+Summary(pl.UTF-8):	Wtyczka Phonon dla Qt5 QtDesignera
+Group:		X11/Libraries
+Requires:	%{name} = %{version}-%{release}
+Requires:	Qt5Designer >= %{qt5_ver}
+
+%description -n Qt5Designer-plugin-phonon
+Phonon plugin for Qt5 QtDesigner.
+
+%description -n Qt5Designer-plugin-phonon -l pl.UTF-8
+Wtyczka Phonon dla Qt5 QtDesignera.
+
 %prep
 %setup -q
 %patch0 -p1
-#%patch1 -p1
 
 
 %build
@@ -137,6 +187,7 @@ install -d build
 cd build
 # disable designer plugin - currently packaged in QtDesigner package
 %cmake .. \
+	-DPHONON_BUILD_DECLARATIVE_PLUGIN=ON \
 	-DPHONON_BUILD_DESIGNER_PLUGIN=OFF
 %{__make}
 
@@ -145,7 +196,8 @@ cd ..
 install -d build5
 cd build5
 %cmake .. \
-	-DPHONON_BUILD_DESIGNER_PLUGIN=OFF \
+	-DPHONON_BUILD_DECLARATIVE_PLUGIN=ON \
+	-DPHONON_BUILD_DESIGNER_PLUGIN=ON \
 	-DPHONON_BUILD_PHONON4QT5=ON \
 	-DPHONON_INSTALL_QT_EXTENSIONS_INTO_SYSTEM_QT=ON
 %{__make}
@@ -174,8 +226,8 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%post qt5	-p /sbin/ldconfig
-%postun qt5	-p /sbin/ldconfig
+%post	qt5 -p /sbin/ldconfig
+%postun	qt5 -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
@@ -201,6 +253,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/phonon/buildsystem
 %{_datadir}/qt4/mkspecs/modules/qt_phonon.pri
 
+%files -n QtDeclarative-plugin-phonon
+%defattr(644,root,root,755)
+%dir %{_libdir}/qt4/imports/Phonon
+%attr(755,root,root) %{_libdir}/qt4/imports/Phonon/libphononqmlplugin.so
+%{_libdir}/qt4/imports/Phonon/VideoPlayer.qml
+%{_libdir}/qt4/imports/Phonon/qmldir
+
 %if %{with qt5}
 %files qt5
 %defattr(644,root,root,755)
@@ -213,10 +272,21 @@ rm -rf $RPM_BUILD_ROOT
 
 %files qt5-devel
 %defattr(644,root,root,755)
-%{_includedir}/phonon4qt5
-%{_libdir}/cmake/phonon4qt5
 %attr(755,root,root) %{_libdir}/libphonon4qt5.so
 %attr(755,root,root) %{_libdir}/libphonon4qt5experimental.so
+%{_includedir}/phonon4qt5
 %{_pkgconfigdir}/phonon4qt5.pc
+%{_libdir}/cmake/phonon4qt5
 %{_libdir}/qt5/mkspecs/modules/qt_phonon4qt5.pri
+
+%files -n Qt5Declarative-plugin-phonon
+%defattr(644,root,root,755)
+%dir %{_libdir}/qt4/imports/Phonon
+%attr(755,root,root) %{_libdir}/qt5/imports/Phonon/libphononqmlplugin.so
+%{_libdir}/qt5/imports/Phonon/VideoPlayer.qml
+%{_libdir}/qt5/imports/Phonon/qmldir
+
+%files -n Qt5Designer-plugin-phonon
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/qt5/plugins/designer/libphononwidgets.so
 %endif
