@@ -1,6 +1,7 @@
 #
 # Conditional build:
-%bcond_without qt5	# do not build Qt5 version
+%bcond_without	qt5		# do not build Qt5 version
+%bcond_with	zeitgeist	# enable zeitgeist (via libqzeitgeist) supoort
 
 %define		qt4_ver		4.8.1
 %define		qt5_ver		5.3.1
@@ -9,7 +10,7 @@ Summary:	Phonon: multimedia API for Qt4/KDE4
 Summary(pl.UTF-8):	Phonon - biblioteka multimedialna dla Qt4/KDE4
 Name:		phonon
 Version:	4.8.2
-Release:	1
+Release:	2
 License:	LGPL v2.1 or LGPL v3
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tar.xz
@@ -37,7 +38,7 @@ BuildRequires:	QtSql-devel >= %{qt4_ver}
 BuildRequires:	QtTest-devel >= %{qt4_ver}
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	glib2-devel >= 2.0
-BuildRequires:	libqzeitgeist-devel >= 0.8
+%{?with_zeitgeist:BuildRequires:	libqzeitgeist-devel >= 0.8}
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 0.9.21
 BuildRequires:	qt4-build >= %{qt4_ver}
@@ -48,7 +49,7 @@ Requires:	QtDBus >= %{qt4_ver}
 Requires:	QtGui >= %{qt4_ver}
 Requires:	QtOpenGL >= %{qt4_ver}
 Requires:	kde-common-dirs >= 0.5
-Requires:	libqzeitgeist >= 0.8
+%{?with_zeitgeist:Requires:	libqzeitgeist >= 0.8}
 Requires:	qt4-phonon-backend
 Provides:	qt4-phonon
 Obsoletes:	qt4-phonon
