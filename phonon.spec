@@ -18,6 +18,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.t
 Patch0:		%{name}-pkg.patch
 URL:		http://phonon.kde.org/
 %if %{with qt5}
+BuildRequires:	Qt5Core-devel >= %{qt5_ver}
 BuildRequires:	Qt5DBus-devel >= %{qt5_ver}
 BuildRequires:	Qt5Declarative-devel >= %{qt5_ver}
 BuildRequires:	Qt5Designer-devel >= %{qt5_ver}
