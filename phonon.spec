@@ -9,12 +9,12 @@
 Summary:	Phonon: multimedia API for Qt4/KDE4
 Summary(pl.UTF-8):	Phonon - biblioteka multimedialna dla Qt4/KDE4
 Name:		phonon
-Version:	4.8.2
-Release:	2
+Version:	4.8.3
+Release:	1
 License:	LGPL v2.1 or LGPL v3
 Group:		X11/Libraries
-Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	f8893c0f8a7ee449492262a05e7fca89
+Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/src/%{name}-%{version}.tar.xz
+# Source0-md5:	88bb9867261803eed61ff53a7c026338
 Patch0:		%{name}-pkg.patch
 URL:		http://phonon.kde.org/
 %if %{with qt5}
