@@ -283,7 +283,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n Qt5Declarative-plugin-phonon
 %defattr(644,root,root,755)
-%dir %{_libdir}/qt4/imports/Phonon
 %dir %{_libdir}/qt5/imports/Phonon
 %attr(755,root,root) %{_libdir}/qt5/imports/Phonon/libphononqmlplugin.so
 %{_libdir}/qt5/imports/Phonon/VideoPlayer.qml
