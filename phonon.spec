@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_without	qt5		# do not build Qt5 version
-%bcond_with	zeitgeist	# enable zeitgeist (via libqzeitgeist) supoort
+%bcond_without	zeitgeist	# enable zeitgeist (via libqzeitgeist) supoort
 
 %define		qt4_ver		4.8.1
 %define		qt5_ver		5.3.1
