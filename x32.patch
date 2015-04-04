@@ -1,0 +1,11 @@
+--- phonon-4.8.3/CMakeLists.txt~	2014-12-04 10:30:26.000000000 +0100
++++ phonon-4.8.3/CMakeLists.txt	2015-04-04 15:36:05.699861998 +0200
+@@ -242,7 +242,7 @@
+ # to it for the 4.x series.
+ # The set variable is used by the PhononConfig.cmake.in to use a refined rootDir
+ # resolution when installed to /usr/lib
+-if("${absInstallDir}" MATCHES "^(/usr)?/lib(64)?/.+")
++if("${absInstallDir}" MATCHES "^(/usr)?/lib(64|x32)?/.+")
+     # Handle "/usr move" symlinks created by some Linux distros.
+     set(USR_SYMLINK_RESOLVER "
+         # Use original install prefix when loaded through a \"/usr move\"
