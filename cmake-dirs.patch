@@ -1,0 +1,19 @@
+--- phonon-4.8.3/cmake/FindPhononInternal.cmake.orig	2014-12-04 10:30:26.000000000 +0100
++++ phonon-4.8.3/cmake/FindPhononInternal.cmake	2015-04-04 14:40:09.316552962 +0200
+@@ -171,12 +171,12 @@
+ 
+ include(GNUInstallDirs)
+ 
+-set(SHARE_INSTALL_PREFIX        "share")  #              CACHE PATH "Base directory for files which go to share/")
+-set(INCLUDE_INSTALL_DIR         "include" ) #           CACHE PATH "The subdirectory to the header prefix")
++set(SHARE_INSTALL_PREFIX        "${CMAKE_INSTALL_DATADIR}" )  #              CACHE PATH "Base directory for files which go to share/")
++set(INCLUDE_INSTALL_DIR         "${CMAKE_INSTALL_INCLUDEDIR}" ) #           CACHE PATH "The subdirectory to the header prefix")
+ if (PHONON_BUILD_PHONON4QT5)
+-    set(INCLUDE_INSTALL_DIR         "include/${PHONON_LIB_SONAME}" ) #           CACHE PATH "The subdirectory to the header prefix")
++	set(INCLUDE_INSTALL_DIR         "${CMAKE_INSTALL_INCLUDEDIR}/${PHONON_LIB_SONAME}" ) #           CACHE PATH "The subdirectory to the header prefix")
+ endif (PHONON_BUILD_PHONON4QT5)
+-set(BIN_INSTALL_DIR             "bin"     ) #         CACHE PATH "The install dir for executables (default ${EXEC_INSTALL_PREFIX}/bin)")
++set(BIN_INSTALL_DIR             "${CMAKE_INSTALL_BINDIR}" ) #         CACHE PATH "The install dir for executables (default ${EXEC_INSTALL_PREFIX}/bin)")
+ set(LIB_INSTALL_DIR             "${CMAKE_INSTALL_LIBDIR}" ) #  CACHE PATH "The subdirectory relative to the install prefix where libraries will be installed"
+ set(PLUGIN_INSTALL_DIR          "${LIB_INSTALL_DIR}/kde4"                   CACHE PATH "The subdirectory relative to the install prefix where plugins will be installed (default is ${LIB_INSTALL_DIR}/kde4)")
+ if (PHONON_BUILD_PHONON4QT5)
