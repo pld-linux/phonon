@@ -1,3 +1,4 @@
+# NOTE: 4.10.3 is the last version with Qt4 support
 #
 # Conditional build:
 %bcond_without	qt5		# do not build Qt5 version
@@ -9,12 +10,12 @@
 Summary:	Phonon: multimedia API for Qt4/KDE4
 Summary(pl.UTF-8):	Phonon - biblioteka multimedialna dla Qt4/KDE4
 Name:		phonon
-Version:	4.8.3
-Release:	6
+Version:	4.10.3
+Release:	1
 License:	LGPL v2.1 or LGPL v3
 Group:		X11/Libraries
-Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/%{version}/src/%{name}-%{version}.tar.xz
-# Source0-md5:	88bb9867261803eed61ff53a7c026338
+Source0:	https://download.kde.org/stable/phonon/%{version}/%{name}-%{version}.tar.xz
+# Source0-md5:	839e7ddc5bc5284cf4cffb8ebd00b4f7
 Patch0:		%{name}-pkg.patch
 Patch1:		x32.patch
 URL:		http://phonon.kde.org/
@@ -29,6 +30,7 @@ BuildRequires:	Qt5Qml-devel >= %{qt5_ver}
 BuildRequires:	Qt5Widgets-devel >= %{qt5_ver}
 BuildRequires:	qt5-build >= %{qt5_ver}
 BuildRequires:	qt5-qmake >= %{qt5_ver}
+BuildRequires:	kf5-extra-cmake-modules
 %endif
 BuildRequires:	QtCore-devel >= %{qt4_ver}
 BuildRequires:	QtDBus-devel >= %{qt4_ver}
@@ -225,6 +227,8 @@ ln -s ../KDE/Phonon $RPM_BUILD_ROOT%{_includedir}/phonon/Phonon
 install -d $RPM_BUILD_ROOT%{_libdir}/qt5/plugins/phonon4qt5_backend
 %endif
 
+%find_lang libphonon_qt --with-qm
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -234,7 +238,7 @@ rm -rf $RPM_BUILD_ROOT
 %post	qt5 -p /sbin/ldconfig
 %postun	qt5 -p /sbin/ldconfig
 
-%files
+%files -f libphonon_qt.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libphonon.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libphonon.so.4
@@ -288,11 +292,11 @@ rm -rf $RPM_BUILD_ROOT
 %files -n Qt5Declarative-plugin-phonon
 %defattr(644,root,root,755)
 %dir %{_libdir}/qt5/imports/Phonon
-%attr(755,root,root) %{_libdir}/qt5/imports/Phonon/libphononqmlplugin.so
+%attr(755,root,root) %{_libdir}/qt5/imports/Phonon/phononqmlplugin.so
 %{_libdir}/qt5/imports/Phonon/VideoPlayer.qml
 %{_libdir}/qt5/imports/Phonon/qmldir
 
 %files -n Qt5Designer-plugin-phonon
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/qt5/plugins/designer/libphononwidgets.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/designer/phononwidgets.so
 %endif
