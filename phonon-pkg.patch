@@ -1,5 +1,6 @@
---- phonon-4.6.0/phonon.pc.cmake~	2011-12-19 21:30:45.000000000 +0100
-+++ phonon-4.6.0/phonon.pc.cmake	2011-12-24 13:47:12.687893180 +0100
+diff -urNp -x '*.orig' phonon-4.10.3.org/phonon.pc.cmake phonon-4.10.3/phonon.pc.cmake
+--- phonon-4.10.3.org/phonon.pc.cmake	2019-07-19 13:42:16.000000000 +0200
++++ phonon-4.10.3/phonon.pc.cmake	2022-05-15 16:30:58.301489764 +0200
 @@ -1,7 +1,7 @@
  prefix=@CMAKE_INSTALL_PREFIX@
  exec_prefix=@EXEC_INSTALL_PREFIX@
@@ -8,4 +9,4 @@
 +includedir=@ABS_INCLUDE_INSTALL_DIR@/KDE
  buildsystemdir=@ABS_BUILDSYSTEM_INSTALL_DIR@
  
- Name: Phonon
+ Name: @PHONON_LIB_SONAME_CAMEL@
