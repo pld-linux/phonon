@@ -119,15 +119,13 @@ install -d $RPM_BUILD_ROOT%{_datadir}/kde4/services/phononbackends
 ln -s ../phonon $RPM_BUILD_ROOT%{_includedir}/qt4/phonon
 ln -s ../KDE/Phonon $RPM_BUILD_ROOT%{_includedir}/phonon/Phonon
 
-%find_lang libphonon_qt --with-qm
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files -f libphonon_qt.lang
+%files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libphonon.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libphonon.so.4
