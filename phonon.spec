@@ -42,8 +42,8 @@ Requires:	QtOpenGL >= %{qt4_ver}
 Requires:	kde-common-dirs >= 0.5
 %{?with_zeitgeist:Requires:	libqzeitgeist >= 0.8}
 Requires:	qt4-phonon-backend
-Provides:	qt4-phonon
-Obsoletes:	qt4-phonon
+Provides:	qt4-phonon = %{version}
+Obsoletes:	qt4-phonon < 4.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -73,8 +73,8 @@ Requires:	%{name} = %{version}-%{release}
 Requires:	QtCore-devel >= %{qt4_ver}
 Requires:	QtDBus-devel >= %{qt4_ver}
 Requires:	QtGui-devel >= %{qt4_ver}
-Provides:	qt4-phonon-devel
-Obsoletes:	qt4-phonon-devel
+Provides:	qt4-phonon-devel = %{version}
+Obsoletes:	qt4-phonon-devel < 4.9
 
 %description devel
 Header files for Phonon library.
