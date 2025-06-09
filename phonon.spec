@@ -25,14 +25,16 @@ BuildRequires:	QtNetwork-devel >= %{qt4_ver}
 BuildRequires:	QtOpenGL-devel >= %{qt4_ver}
 BuildRequires:	QtSql-devel >= %{qt4_ver}
 BuildRequires:	QtTest-devel >= %{qt4_ver}
-BuildRequires:	cmake >= 2.8.0
+BuildRequires:	cmake >= 2.8.9
 BuildRequires:	glib2-devel >= 2.0
 %{?with_zeitgeist:BuildRequires:	libqzeitgeist-devel >= 0.8}
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 0.9.21
 BuildRequires:	qt4-build >= %{qt4_ver}
 BuildRequires:	qt4-qmake >= %{qt4_ver}
-BuildRequires:	rpmbuild(macros) >= 1.603
+BuildRequires:	rpmbuild(macros) >= 1.605
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires:	QtCore >= %{qt4_ver}
 Requires:	QtDBus >= %{qt4_ver}
 Requires:	QtGui >= %{qt4_ver}
