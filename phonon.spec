@@ -12,11 +12,11 @@ Version:	4.10.3
 Release:	3
 License:	LGPL v2.1 or LGPL v3
 Group:		X11/Libraries
-Source0:	https://download.kde.org/stable/phonon/%{version}/%{name}-%{version}.tar.xz
+Source0:	https://download.kde.org/Attic/phonon/%{version}/%{name}-%{version}.tar.xz
 # Source0-md5:	839e7ddc5bc5284cf4cffb8ebd00b4f7
 Patch0:		%{name}-pkg.patch
 Patch1:		x32.patch
-URL:		http://phonon.kde.org/
+URL:		https://userbase.kde.org/Phonon
 BuildRequires:	QtCore-devel >= %{qt4_ver}
 BuildRequires:	QtDBus-devel >= %{qt4_ver}
 BuildRequires:	QtDeclarative-devel >= %{qt4_ver}
